@@ -12,6 +12,11 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-netlify-identity": "^0.2.7",
-    "react-netlify-identity-widget": "^0.2.7"
+    "react-netlify-identity-widget": "^0.2.7",
+    "blobshape": "^1.0.0",
+    "markdown-to-jsx": "^7.1.1",
+    "@reach/dialog": "^0.16.0",
+    "@reach/visually-hidden": "^0.16.0",
+    "@reach/tabs": "^0.16.0"
   }
 }
