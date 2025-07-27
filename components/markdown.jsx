@@ -1,6 +1,8 @@
 'use client';
-import Markdown from 'markdown-to-jsx';
+import MarkdownToJSX from 'markdown-to-jsx';
 
-export default function MarkdownRenderer({ children }) {
-  return <Markdown options={{ forceBlock: true }}>{children}</Markdown>;
+export function Markdown({ children }) {
+  return <MarkdownToJSX options={{ forceBlock: true }}>{children}</MarkdownToJSX>;
 }
+
+export default Markdown;

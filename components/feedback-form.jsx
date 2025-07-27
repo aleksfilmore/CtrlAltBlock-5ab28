@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-export default function FeedbackForm() {
+function FeedbackFormComponent() {
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState(null);
 
@@ -41,3 +41,6 @@ export default function FeedbackForm() {
     </form>
   );
 }
+
+export function FeedbackForm(props) { return <FeedbackFormComponent {...props} />; }
+export default FeedbackFormComponent;
