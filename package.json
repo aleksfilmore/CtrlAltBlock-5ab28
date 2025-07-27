@@ -8,18 +8,17 @@
     "start": "next start"
   },
   "dependencies": {
+    "@netlify/blobs": "1.0.3",
+    "autoprefixer": "10.4.16",
     "next": "15.0.0",
+    "postcss": "8.4.38",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-
-    "@netlify/blobs": "latest",          // fixes the “getStore not exported” error
-    "tailwindcss": "3.4.4",              // core style framework
-    "postcss": "8.4.30",                 // used by Tailwind/Next for CSS
-    "autoprefixer": "10.4.16"            // fixes the missing-module error
+    "tailwindcss": "3.4.4"
   },
   "devDependencies": {
-    "typescript": "latest",
-    "@types/react": "latest",
-    "@types/node": "latest"
+    "@types/node": "20.11.30",
+    "@types/react": "18.2.57",
+    "typescript": "5.4.5"
   }
 }
