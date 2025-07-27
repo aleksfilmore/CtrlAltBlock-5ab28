@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <button id="send">Send Blob</button>
+  <pre id="out"></pre>
+  <script>
+    document.getElementById('send').onclick = () => {
+      fetch('https://ctrlaltblock.com/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ping: 'hello blobs' })
+      })
+        .then(r => r.json())
+        .then(d => (out.textContent = JSON.stringify(d, null, 2)))
+        .catch(e => (out.textContent = e));
+    };
+  </script>
+</body>
+</html>
