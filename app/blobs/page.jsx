@@ -2,7 +2,12 @@ import { listShapesAction } from './actions';
 export const dynamic = 'force-dynamic';
 
 export default async function BlobsPage() {
-  const keys = await listShapesAction();
+  let keys = [];
+  try {
+    keys = await listShapesAction();
+  } catch (err) {
+    console.error('Error fetching blobs:', err);
+  }
 
   return (
     <main className="p-8">
