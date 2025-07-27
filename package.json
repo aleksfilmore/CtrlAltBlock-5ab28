@@ -12,19 +12,14 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
 
-    "tailwindcss": "^3.4.4",
-    "postcss": "^8.4.34",
-    "autoprefixer": "^10.4.20",
-
-    "@netlify/blobs": "^1.0.0",
-    "blobshape": "^1.0.0",
-    "markdown-to-jsx": "^7.1.1",
-
-    "@reach/dialog": "^0.16.0",
-    "@reach/visually-hidden": "^0.16.0",
-    "@reach/tabs": "^0.16.0",
-
-    "react-netlify-identity": "^0.2.7",
-    "react-netlify-identity-widget": "^0.2.7"
+    "@netlify/blobs": "latest",          // fixes the “getStore not exported” error
+    "tailwindcss": "3.4.4",              // core style framework
+    "postcss": "8.4.30",                 // used by Tailwind/Next for CSS
+    "autoprefixer": "10.4.16"            // fixes the missing-module error
+  },
+  "devDependencies": {
+    "typescript": "latest",
+    "@types/react": "latest",
+    "@types/node": "latest"
   }
 }
