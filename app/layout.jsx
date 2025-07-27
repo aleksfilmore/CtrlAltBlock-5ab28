@@ -1,36 +1,10 @@
 import './globals.css';
 import Link from 'next/link';
-import PanicButton from 'components/panic-btn';
+import PanicButton from 'components/panic-btn';   // ✅ keep this
 
 export const metadata = { title: 'CTRL+ALT+BLOCK', description: 'Break the loop.' };
 
-
-function PanicButton() {
-  const lines = [
-    "Block. Breathe. Repeat.",
-    "Close the chat—open your future.",
-    "They’re not your rehab center.",
-    "Craving chaos? Do 20 push‑ups instead."
-  ];
-  function fire() {
-    const line = lines[Math.floor(Math.random() * lines.length)];
-    alert(line);
-  }
-  return (
-    <button
-      onClick={fire}
-      style={{
-        position: 'fixed',
-        bottom: '1rem',
-        right: '1rem',
-        zIndex: 1000
-      }}
-      className="bg-pink-600 hover:bg-pink-700 text-sm px-3 py-2 rounded shadow-lg"
-    >
-      About to text them?
-    </button>
-  );
-}
+// 🚮 REMOVE the whole duplicated function PanicButton() { … } block
 
 export default function RootLayout({ children }) {
   return (
@@ -46,13 +20,16 @@ export default function RootLayout({ children }) {
             <li><Link href="/closure">AI Closure</Link></li>
           </ul>
         </nav>
+
         <div className="flex-1">{children}</div>
+
         <footer className="text-center text-xs text-gray-500 py-6">
           CTRL+ALT+BLOCK © {new Date().getFullYear()}
         </footer>
-        
-      <PanicButton />
-</body>
+
+        {/* Client-side panic button */}
+        <PanicButton />
+      </body>
     </html>
   );
 }
