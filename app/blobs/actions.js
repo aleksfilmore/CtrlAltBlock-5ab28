@@ -1,27 +1,35 @@
 'use server';
-import { getStore } from '@netlify/blobs';
+
+import { createBlob, getBlob, listBlobs } from '@netlify/blobs';
 import { uploadDisabled } from 'utils';
 
-function store() {
-    return getStore({ name: 'shapes', consistency: 'strong' });
-}
+const BLOB_BUCKET = 'shapes';
 
-// Always be sanitizing data in real sites!
 export async function uploadShapeAction({ parameters }) {
-    if (uploadDisabled) throw new Error('Sorry, uploads are disabled');
+  if (uploadDisabled) throw new Error('Sorry, uploads are disabled');
 
-    const key = parameters.name;
-    await store().setJSON(key, parameters);
-    console.log('Stored shape with parameters:', parameters, 'to key:', key);
+  const key = parameters.name;
+  await createBlob({
+    bucket: BLOB_BUCKET,
+    key,
+    value: JSON.stringify(parameters),
+    encoding: 'utf-8',
+    contentType: 'application/json',
+  });
+
+  console.log('Stored shape with parameters:', parameters, 'to key:', key);
 }
 
 export async function listShapesAction() {
-    const data = await store().list();
-    const keys = data.blobs.map(({ key }) => key);
-    return keys;
+  const result = await listBlobs({ bucket: BLOB_BUCKET });
+  const keys = result.blobs.map(({ key }) => key);
+  return keys;
 }
 
 export async function getShapeAction({ keyName }) {
-    const data = await store().get(keyName, { type: 'json' });
-    return data;
+  const blob = await getBlob({ bucket: BLOB_BUCKET, key: keyName });
+  if (!blob || !blob.body) return null;
+
+  const json = await blob.body.text();
+  return JSON.parse(json);
 }
