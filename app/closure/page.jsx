@@ -1,7 +1,13 @@
 'use client';
 import { useState } from 'react';
 
-export default function ClosurePage() {
+
+function Disclaimer(){
+  return <p className="text-xs text-gray-400 mb-4">AI is not therapy. For entertainment and reflection only.</p>;
+}
+
+export default function ClosurePage()
+ {
   const [input, setInput] = useState('');
   const [letter, setLetter] = useState('');
   const [loading, setLoading] = useState(false);
@@ -20,7 +26,7 @@ export default function ClosurePage() {
   }
   return (
     <main className="max-w-2xl mx-auto p-8 text-white">
-      <h1 className="text-4xl font-bold mb-4">AI Closure Letter</h1>
+      <Disclaimer />\n      <h1 className="text-4xl font-bold mb-4">AI Closure Letter</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-6">
         <textarea
           className="p-3 rounded text-black"

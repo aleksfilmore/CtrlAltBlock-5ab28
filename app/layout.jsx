@@ -3,6 +3,34 @@ import Link from 'next/link';
 
 export const metadata = { title: 'CTRL+ALT+BLOCK', description: 'Break the loop.' };
 
+
+function PanicButton() {
+  const lines = [
+    "Block. Breathe. Repeat.",
+    "Close the chat—open your future.",
+    "They’re not your rehab center.",
+    "Craving chaos? Do 20 push‑ups instead."
+  ];
+  function fire() {
+    const line = lines[Math.floor(Math.random() * lines.length)];
+    alert(line);
+  }
+  return (
+    <button
+      onClick={fire}
+      style={{
+        position: 'fixed',
+        bottom: '1rem',
+        right: '1rem',
+        zIndex: 1000
+      }}
+      className="bg-pink-600 hover:bg-pink-700 text-sm px-3 py-2 rounded shadow-lg"
+    >
+      About to text them?
+    </button>
+  );
+}
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -21,7 +49,8 @@ export default function RootLayout({ children }) {
         <footer className="text-center text-xs text-gray-500 py-6">
           CTRL+ALT+BLOCK © {new Date().getFullYear()}
         </footer>
-      </body>
+        <PanicButton />
+</body>
     </html>
   );
 }

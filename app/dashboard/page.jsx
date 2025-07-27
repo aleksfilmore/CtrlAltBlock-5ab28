@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 
 const KEY = 'cab:lastContact';
+const SHIELD_KEY='cab:shield';
 const DAY_MS = 86400000;
 
 export const dynamic = 'force-dynamic';
@@ -19,7 +20,25 @@ export default function DashboardPage() {
     return () => clearInterval(id);
   }, []);
 
-  function reset() {
+  
+function reset() {
+  if (typeof window === 'undefined') return;
+  const shield = localStorage.getItem(SHIELD_KEY);
+  const monthMs = 30*24*60*60*1000;
+  const now = Date.now();
+  if (shield && now - parseInt(shield,10) < monthMs) {
+    alert('Streak Shield activated. No days lost!');
+    localStorage.removeItem(SHIELD_KEY);
+    return;
+  }
+  // no shield, but grant new shield timestamp
+  localStorage.setItem(SHIELD_KEY, String(now));
+  const confirmReset = confirm('Slip recorded. Start Recovery Ritual?');
+  if(confirmReset) location.href='/ritual';
+  localStorage.setItem(KEY, String(now));
+  setDays(0);
+}
+
     if (typeof window === 'undefined') return;
     const now = Date.now();
     localStorage.setItem(KEY, String(now));
