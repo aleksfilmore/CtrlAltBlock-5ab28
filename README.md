@@ -1,3 +1,3 @@
 # CTRL+ALT+BLOCK
 
-Full site repo setup.
+This is the starter repo for CTRL+ALT+BLOCK.
