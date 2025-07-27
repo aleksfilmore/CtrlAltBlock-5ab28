@@ -14,12 +14,10 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
 
-    /* --- styling pipeline --- */
     "tailwindcss": "^3.4.4",
     "postcss": "^8.4.31",
     "autoprefixer": "^10.4.14",
 
-    /* --- markdown renderer used by /classics & others --- */
     "markdown-to-jsx": "^7.4.0"
   }
 }
