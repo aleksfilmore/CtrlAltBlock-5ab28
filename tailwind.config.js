@@ -8,7 +8,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#f35b4e", // or whatever color matches your branding
+        primary: "var(--color-primary)",
+        "primary-content": "var(--color-primary-content)",
+        secondary: "var(--color-secondary)",
       },
     },
   },
