@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@netlify/blobs": "^0.9.1",          // ✅ this one is published
+    "@netlify/blobs": "^0.9.1",
     "blobshape": "^1.0.2",
     "next": "15.0.0",
     "react": "18.2.0",
