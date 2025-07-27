@@ -1,5 +1,14 @@
 [build]
   command = "npm run build"
   publish = ".next"
-[plugins]
+
+[dev]
+  command = "npm run dev"
+  port = 3000
+  targetPort = 3000
+
+[functions]
+  directory = "netlify/functions"
+
+[[plugins]]
   package = "@netlify/plugin-nextjs"
