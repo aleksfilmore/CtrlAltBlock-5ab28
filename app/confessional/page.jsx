@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { FeedbackForm } from 'components/feedback-form';
 
-export const metadata = { title: 'Confessional - CTRL+ALT+BLOCK' };
 
 export default function ConfessionalPage() {
   const [submitted, setSubmitted] = useState(false);

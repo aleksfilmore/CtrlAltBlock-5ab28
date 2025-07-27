@@ -9,7 +9,6 @@ const rituals = [
   "Donate something that reminds you of them."
 ];
 
-export const metadata = { title: 'Daily Ritual - CTRL+ALT+BLOCK' };
 
 function randomRitual() { return rituals[Math.floor(Math.random()*rituals.length)]; }
 

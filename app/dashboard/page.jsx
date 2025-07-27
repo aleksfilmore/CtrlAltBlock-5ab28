@@ -5,7 +5,6 @@ const KEY = 'cab:lastContact';
 
 function daysSince(ts){ return Math.floor((Date.now()-ts)/86400000); }
 
-export const metadata = { title: 'Dashboard - CTRL+ALT+BLOCK' };
 
 export default function DashboardPage(){
   const [last,setLast]=useState(()=>{const v=localStorage.getItem(KEY);return v?parseInt(v,10):Date.now();});
