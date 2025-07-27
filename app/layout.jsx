@@ -1,5 +1,6 @@
 import './globals.css';
 import Link from 'next/link';
+import PanicButton from 'components/panic-btn';
 
 export const metadata = { title: 'CTRL+ALT+BLOCK', description: 'Break the loop.' };
 
@@ -49,7 +50,8 @@ export default function RootLayout({ children }) {
         <footer className="text-center text-xs text-gray-500 py-6">
           CTRL+ALT+BLOCK © {new Date().getFullYear()}
         </footer>
-        <PanicButton />
+        
+      <PanicButton />
 </body>
     </html>
   );
