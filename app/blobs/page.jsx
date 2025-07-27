@@ -2,28 +2,23 @@ import { listShapesAction } from './actions';
 export const dynamic = 'force-dynamic';
 
 export default async function BlobsPage() {
-  let shapes = [];
-  try {
-    shapes = await listShapesAction();
-  } catch (e) {
-    console.error('Blobs unavailable at build time:', e?.message);
-  }
-  if (!shapes.length) {
-    return (
-      <main className="p-8">
-        <h1 className="text-3xl font-bold mb-4">Blobs</h1>
-        <p className="text-sm text-gray-400">Blobs storage not yet ready. Check back later.</p>
-      </main>
-    );
-  }
+  const keys = await listShapesAction();
+
   return (
     <main className="p-8">
-      <h1 className="text-3xl font-bold mb-4">Blobs</h1>
-      <ul className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {shapes.map((id)=>(
-          <li key={id} className="border rounded p-2 text-xs break-all">{id}</li>
-        ))}
-      </ul>
+      <h1 className="text-3xl font-bold mb-6">Blob Submissions</h1>
+
+      {keys.length === 0 ? (
+        <p className="text-gray-400">No blobs yet.</p>
+      ) : (
+        <ul className="space-y-2">
+          {keys.map((k) => (
+            <li key={k} className="rounded bg-gray-800 p-2 font-mono text-xs break-all">
+              {k}
+            </li>
+          ))}
+        </ul>
+      )}
     </main>
   );
 }
