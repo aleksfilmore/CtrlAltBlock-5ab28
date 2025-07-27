@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "leaflet": "^1.9.4",
     "blobshape": "^1.0.0",
     "unique-names-generator": "^4.7.1",
     "bright": "^1.0.0",
